@@ -4,16 +4,16 @@
 \alias{resolve_identity}
 \title{Resolve one package name against a unified identity lookup.}
 \usage{
-resolve_identity(name, prefix_hint = NULL, maps)
+resolve_identity(name, maps, prefix_hint = NULL)
 }
 \arguments{
 \item{name}{Bare package token (the caller has already stripped any channel
 prefix such as "r-", "bioconductor-", "r-cran-").}
 
+\item{maps}{The object returned by \code{resolve_identity_set} or \code{load_identity}.}
+
 \item{prefix_hint}{Optional channel-asserted origin ("cran" or "bioc") used
 only to log a disagreement; the tables always decide.}
-
-\item{maps}{The object returned by \code{resolve_identity_set} or \code{load_identity}.}
 }
 \value{
 A list with \code{origin} ("cran"|"bioc"|"other"), \code{canonical_name},

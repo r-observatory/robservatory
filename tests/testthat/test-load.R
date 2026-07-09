@@ -20,10 +20,15 @@ test_that("load_identity reads two name DBs and resolves against them", {
                identity_state = "live", stringsAsFactors = FALSE))
 
   maps <- load_identity(cran_db, bioc_db)
+  expect_true(check_size(maps$n_cran, floor = 1L))
   expect_equal(maps$n_cran, 2L)
   expect_equal(maps$n_bioc, 1L)
   expect_equal(resolve_identity("mass", maps = maps)$canonical_name, "MASS")
   expect_equal(resolve_identity("complexheatmap", maps = maps)$origin, "bioc")
   expect_equal(resolve_identity("maptools", maps = maps)$identity_state, "archived")
   expect_false(resolve_identity("yr", maps = maps)$in_scope)
+})
+
+test_that("load_identity errors on a missing DB path", {
+  expect_error(load_identity("/no/such/cran.db", "/no/such/bioc.db"), "not found")
 })

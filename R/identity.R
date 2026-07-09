@@ -51,13 +51,13 @@ resolve_identity_set <- function(cran_names, bioc_names) {
 #'
 #' @param name Bare package token (the caller has already stripped any channel
 #'   prefix such as "r-", "bioconductor-", "r-cran-").
+#' @param maps The object returned by `resolve_identity_set` or `load_identity`.
 #' @param prefix_hint Optional channel-asserted origin ("cran" or "bioc") used
 #'   only to log a disagreement; the tables always decide.
-#' @param maps The object returned by `resolve_identity_set` or `load_identity`.
 #' @return A list with `origin` ("cran"|"bioc"|"other"), `canonical_name`,
 #'   `identity_state` ("live"|"archived"|NA), and `in_scope` (logical).
 #' @export
-resolve_identity <- function(name, prefix_hint = NULL, maps) {
+resolve_identity <- function(name, maps, prefix_hint = NULL) {
   key <- tolower(name)
   hit <- get0(key, envir = maps$lookup, inherits = FALSE)
   if (is.null(hit)) {

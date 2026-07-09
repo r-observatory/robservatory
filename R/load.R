@@ -16,6 +16,9 @@ load_identity <- function(cran_db_path, bioc_db_path,
                           cran_table = "cran_names_all",
                           bioc_table = "bioc_names_all") {
   read_tbl <- function(path, tbl) {
+    if (!file.exists(path)) {
+      stop(sprintf("name-table DB not found: %s", path))
+    }
     con <- DBI::dbConnect(RSQLite::SQLite(), path)
     on.exit(DBI::dbDisconnect(con))
     DBI::dbGetQuery(con, sprintf(

@@ -33,6 +33,8 @@ test_that("resolve_identity applies precedence, casing, and scope", {
                     identity_state = NA_character_, in_scope = FALSE))
   # lookup is case-insensitive on input
   expect_equal(resolve_identity("MASS", maps = maps)$origin, "cran")
+  # positional: the second argument is maps
+  expect_equal(resolve_identity("ggplot2", maps)$origin, "cran")
 })
 
 test_that("resolve_identity warns when prefix_hint disagrees but trusts the tables", {
