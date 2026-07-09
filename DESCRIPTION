@@ -1,6 +1,6 @@
 Package: robservatory
 Title: Shared R Observatory Utilities
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: person("R Observatory", role = c("aut", "cre"), email = "james.balamuta@gmail.com")
 Description: Internal utilities shared across the r-observatory download and
     metadata pipelines. The initial content resolves an R package name to its
