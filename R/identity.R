@@ -37,7 +37,8 @@ resolve_identity_set <- function(cran_names, bioc_names) {
       list(origin = all$origin[i], canonical_name = all$canonical_name[i],
            identity_state = all$identity_state[i])
     })
-    list2env(stats::setNames(values, all$name_lower), envir = lookup)
+    names(values) <- all$name_lower
+    list2env(values, envir = lookup)
   }
   maps <- new.env(parent = emptyenv())
   maps$lookup <- lookup
