@@ -4,5 +4,5 @@
 .Ruserdata
 *.Rproj
 docs/
-..Rcheck/
+*.Rcheck/
 *.tar.gz
