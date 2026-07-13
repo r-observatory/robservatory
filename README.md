@@ -14,3 +14,7 @@ robservatory::resolve_identity("complexheatmap", maps = maps)
 #> $identity_state "live"
 #> $in_scope       TRUE
 ```
+
+## Feedback
+
+Found a bug, a wrong number, or a missing package? Report it at [r-observatory/feedback](https://github.com/r-observatory/feedback/issues/new/choose). All feedback about R Observatory, the site, the data, and the pipelines, is tracked in one place.
